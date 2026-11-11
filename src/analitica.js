@@ -45,7 +45,8 @@ function ventaMayor(ventas) {
 }
 
 
-// Calcula el ticket promedio de las ventas (promedio de valor de venta por cliente)
+// Cuanto gasta un cliente en promedio por compra
+
 function ticketPromedio(ventas) {
     let total = 0;
     let contador = 0;

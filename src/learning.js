@@ -21,7 +21,44 @@ console.log("Hola", nombre, "tienes", edad, "años");*/
 // let pricePerUnit = totalPrice / quantity;
 // console.log(pricePerUnit);
 
-let age = 29;
-let isAdult = 16 >= 18;
-console.log(isAdult);
+// let age = 29;
+// let isAdult = age >= 18;
+// console.log(isAdult);
+// console.log(25 === 25)
+// console.log(25 === 30)
+// console.log(25 === "25")
 
+// let userAge = 16;
+// let hasAccount = false;
+
+// let canAccess = userAge >= 18 && hasAccount;
+// console.log(canAccess)
+
+// let userAge = 16;
+// let hasPermission = true;
+
+// let canAccess = userAge >= 18 || hasPermission;
+// console.log(canAccess)
+
+// let isRaining = false
+
+// console.log(!isRaining)
+
+//Acceso a una película
+// Un cine tiene estas condiciones para permitir el ingreso:
+// - La persona debe tener 18 años o más.
+// - O debe estar acompañada por un adulto.
+
+// let age = 16
+// let accompaniedByAdult = true
+
+// let canwatchMovie = age >= 18 || accompaniedByAdult
+// console.log(canwatchMovie)
+
+// La compra es igual o superior a 100000.
+// El cliente tiene una membresía especial y la compra es superior a 50000.
+
+// let purchase = 40000;
+// let hasMembership = true;
+// let getsDiscount = (hasMembership && purchase > 50000) || (purchase >= 100000);
+// console.log(getsDiscount)
