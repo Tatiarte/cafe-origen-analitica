@@ -62,3 +62,68 @@ console.log("Hola", nombre, "tienes", edad, "años");*/
 // let hasMembership = true;
 // let getsDiscount = (hasMembership && purchase > 50000) || (purchase >= 100000);
 // console.log(getsDiscount)
+
+
+//Condicionales
+// const age = 18 
+// if (age >= 18);
+// console.log("you are of legal age")
+
+//condicionales con else
+//     const age = 17 
+// if (age >= 18){
+//     console.log("you are of legal age")
+// }
+// else{
+//     console.log("you are not of legal age")
+// }
+
+//condicionales con else if
+
+// let age = 16
+// if(age >= 18){   // si se cumple la primera condición
+//     console.log("you are of legal age")
+// } 
+// else if (age >= 16){  // si no se cumple la primera, evalua esta otra
+//     console.log("you are almost of legal age")
+
+// } else {             // si ninguna de las anteiores se cumple
+//     console.log("you are not of legal age")
+// }
+
+
+// // funciones
+
+//     function calcularPuntos (puntosBase){
+//         let total = (puntosBase + 50);
+
+//         console.log(total);
+//     }
+
+//     calcularPuntos(100)
+
+// function calcularTotal (precioProducto){
+//     let total = (precioProducto + 15)
+//     console.log(total)
+// }
+
+// calcularTotal(100)
+
+// function sumar(a, b) {
+//     console.log(a + b); 
+// }
+
+// let resultado = sumar(5, 3); // Muestra 8 en consola, pero...
+// console.log(resultado); // imprime undefined
+
+// // ¿por qué? la función mostro el 8 en la consola, pero no se lo entrego a la variable resultado 0
+
+
+// function con 2 parametros
+// function calcularViaje (kilometrosPorHora, hora){
+//     let totalRecorrido = kilometrosPorHora * hora;
+//     console.log(totalRecorrido)
+// }
+
+// calcularViaje(10, 3)
+
