@@ -368,7 +368,7 @@ function caloriasQuemadas(minutos) {
     return caloriasTotales;
 }
 
-// Arrow fuction
+// ARROW FUNCTION:
 const caloriasQuemadas = (minutos) => {
     let caloriasTotales = minutos * 10; 
     return caloriasTotales;
@@ -401,3 +401,95 @@ console.log(caloriasQuemadas(30)); // Muestra: 300
 const calcularEnvio = (kilometros) => kilometros * 5;
 console.log(calcularEnvio(8))
 
+// Fecha multi-paso: El salario neto
+
+function calcularSalarioNeto (horasTrabajadas, tarifaPorHora){
+const salarioNeto = horasTrabajadas * tarifaPorHora;
+const impuetos = salarioNeto - 30;
+return impuetos;
+}
+
+console.log(calcularSalarioNeto(40, 15))
+
+// La anterior función escrita con arrow obliga a que al tener varios parámetros y al ser más de una línea de código dentro de la función
+// Debemos usar {} y el return
+
+// Declaro la constante, los parámetros y la flecha
+const calcularSalarioNeto = (horasTrabajadas, tarifaPorHora) => {
+  //Hacemos los pasos dentro de las llaves
+  const salarioNeto = horasTrabajadas * tarifaPorHora;
+  const impuestos = salarioNeto - 30;
+  return impuestos;
+}
+
+console.log(calcularSalarioNeto(40, 15))
+
+// FUNCIONES CON FOR (BUCLE)
+
+const contarSi = (respuestas) => {
+  let contador = 0;
+  for (let i = 0; i < respuestas.length; i++) {
+    if (respuestas[i] === "Sí") {
+      contador++;
+    }
+  }
+  return contador;
+};
+
+// ejemplo con edad de cómo se usa un for
+
+// let total = 0 esto es el contador, es decir va antes del for porque es el que va a guardar el resultado del recorrido por la lista de edades,
+// es como decir que es la caja de resultados, si estuviese dentro del for no serviría porque el ciclo haria que se borrara el resultado
+// y volviera a empezar en cero en cada vuelta, y tiene que estar en una variable para que sea llamada
+
+// for(let i = 0) aquí es una variable del i que seria el puntero o el indice que nos dice en qué posición esta de la lista, comienza en 0 y cuenta
+// los pasos que da.
+
+// el limite o el freno es i< edades.length. Este condicional evalua en cada vuelta si el indice actual es menor que el tamaño total de la lista.
+// es decir, cuando llega al último numero de la lista el i debe detenerse por eso el i debe ser menor que el tamaño total de la lista
+
+// i++ significa el paso o avance, es la última instrucción de cada vuelta, su trabajo es sumarle un 1 a la variable i (pasa de 0 a 1, de 1 a 2 y así)
+// así en la siguiente iteración el bucle avance al siguiente elemento de la lista y cuando i sea igual al ultimo numero por ejemplo 4 y edades.length
+// también llegue a 4 (incrementando de uno en uno con i++) la condición es false y se detiene: 4<4 false
+
+// total = total se refiere al total del contador , el que esta fuera del bucle TATI RECUERDA QUE en programación = no es igual sino que se ASIGNA y 
+// GUARDA, por eso total + edad[i] esta diciendo que toma el valor que la caja total tiene guardado en ese momento y le suma el elemento actual de la lista.
+// Ejemplo: Imagina que tienes una lista de edades: [20, 25, 30]. Cuando i vale 0, edades[0] busca el primer valor de la lista, que es 20.
+// Cuando i avanza a 1, edades[1] busca el segundo valor, que es 25. Cuando i avanza a 2, edades[2] busca el tercer valor, que es 30.
+// Ahora el total del lado izquierdo de esta linea --> total = total + edades[i] nos dice que tomemos ese resultado recién calculado y lo sobreescribe 
+// dentro de la misma caja total para actualizarla.
+
+function sumarEdades(edades) {
+  let total = 0; // Caja inicial para acumular la suma
+  
+  for (let i = 0; i < edades.length; i++) {
+    total = total + edades[i]; // Sumamos cada elemento de la lista al total
+  }
+  
+  return total;
+}
+
+
+//Ahora hacer varios ejercicios con for para afianzar lo aprendido:
+
+
+// Generar una tabla de multiplicar sin necesidad de una lista 
+// Leyendo esta función nos dice que tablaDelCinco es la función que arranca en i = 1 para evitar que el resutlado sea cero. El bucle se repite
+// mientras i <= 10 lo que significa que incluye al número 10 como ultima vuelta, llegando hasta 5*10. El incremento se da de uno en uno con la 
+// instrucción i++, finalmente el console.log arroja 5*1 que es la expresión matematica que se calcula y se imprime en cada vuelta del bucle
+
+function tablaDelCinco() {
+  for (let i = 1; i <= 10; i++) {
+    console.log(5 * i);
+  }
+}
+
+//Escribe una función llamada contarAprobados(notas) que reciba una lista de números (calificaciones) y devuelva cuántas notas son mayores o iguales a 60.
+
+function contarAprobados(calificaciones){
+  let total = 0;
+  for(let i = 0; i <= calificaciones.length; i++){
+    total = total + calificaciones[i];
+  }
+  return total;
+}
