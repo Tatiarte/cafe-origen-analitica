@@ -1,6 +1,18 @@
 # Bitácora de análisis — Café Origen
 
-## Diccionario de datos
+¿por qué tengo que separar la lista de objetos de las funciones y otro archivo para los console.log?
+R/. Porque para ser una backend exitosa tengo que hacer separación de responsabilidades (Separation of Concerns)
+Entonces imaginemos la cafeteria de Café Origen, los datos vendrían siendo la bodega donde guardo los ingredientes crudos. solo se guardan, no se está haciendo nada con ellos. Ahora, el archivo analitica es la cocina del chef, allí están las recetas y herramientas o sea, las funciones que procesan, calculan, filtran, etc. finalmente, se tiene explorar que seria el mesero y la mesa, o sea donde pides el plato y se lo enseñas al cliente, aquí se usa el requiere.
+
+¿por qué las funciones no deben llevar el console.log adentro? Clave: porque las funciones debens er independientes de la pantalla, si le ponemos el console.log quiere decir que la funcion estara unida a la terminal entonces si el día de mañana quiero que el resultado de la función no se imprima en la consola sino que se guarde en una base de datos, se envie por correo o aparezca en una página web si dejo que la función imrpima directo ya no sirve.
+
+¿Cómo se conectan con el require?
+
+Tu intuición era totalmente acertada: el require es el puente de grúa que trae los ingredientes de la bodega a la cocina, o de la cocina a la mesa.
+
+En datos.js exportas los datos: module.exports = ventas;
+En explorar.js los importas para usarlos: const ventas = require('./datos');
+
 
 | Propiedad | Tipo de dato | Significado |
 |---|---|---|
