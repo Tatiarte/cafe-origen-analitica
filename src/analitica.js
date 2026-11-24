@@ -1,5 +1,10 @@
+// Este archivo se crea para almacenar las funciones del minireto 1 de la semana 1
+
 
 // Calcula el valor total de una venta
+// ¿cómo sabe la función que .cantidad y .precio son propiedades del archivo datos? porque viajan de aquí hasta el archivo datos y se muestran en
+// explorar. 
+// Aquí venta es un parámetro comodín (o variable local) que representa una sola fila del arreglo en el momento en que la función se ejecuta
 function valorVenta(venta) {
     return venta.cantidad * venta.precio;
 }

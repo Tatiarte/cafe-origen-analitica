@@ -1,3 +1,9 @@
+// Tabla extraida del minireto 1 de la semana 1: lista de ventas de Café Origen 
+//Aquí creamos los objetos del arreglo ventas. En cuanto a la calidad de los datos no están homogeneizados a propósito
+// en función del ejercicio. 
+// Aprendizajes: un arreglo puede exisitir dentro de otro arreglo y un objeto puede contener// otro objeto u otro arreglo, ejemplo: el juego de 
+// snake, el objeto es un arreglo con posición x y y
+
 const ventas = [
     {
         id: 1,

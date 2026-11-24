@@ -1,9 +1,4 @@
 // Importamos el arreglo de ventas desde datos.js
-const ventas = require("./datos");
-
-
-// Consultamos cuántos registros contiene el arreglo: 12
-console.log("Cantidad de ventas:", ventas.length);
 
 console.log("Primera venta:", ventas[0]);
 
