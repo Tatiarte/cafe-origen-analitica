@@ -1,4 +1,6 @@
 // Importamos el arreglo de ventas desde datos.js
+const ventas = require("./datos");
+
 
 console.log("Primera venta:", ventas[0]);
 
@@ -10,6 +12,10 @@ console.log("Producto de la quinta venta:", ventas[4].producto);
 
 // Mostramos todos los registros en formato de tabla
 console.table(ventas);
+
+// Agregamos la cantidad de registros (punto 4 del minireto)
+
+console.log("Cantidad de registros:", ventas.length);
 
 // Importamos las funciones de análisis
 const {
@@ -52,6 +58,11 @@ console.log("Ventas en Medellín:", ventasPorCiudad(ventasVacias, "Medellín"));
 
 
 // Probamos cada función con tres entradas.
-console.log("\n--- PRUEBA DE valorVenta ---");
+console.log("Venta normal:", valorVenta(ventas[0]));      // 84000
+console.log("Cantidad 0:", valorVenta(ventas[7]));        // 0
+console.log("Venta de 4 unidades:", valorVenta(ventas[9])); // 168000
 
-console.log("Valor de una venta:", valorVenta(ventas[0]));
+// Pruebas de ventasPorCiudad
+
+console.log(ventasPorCiudad(ventas, "  MEDELLÍN ")); // 356000
+console.log(ventasPorCiudad(ventas, "Leticia"));      // 0

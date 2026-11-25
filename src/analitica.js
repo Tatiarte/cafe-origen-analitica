@@ -1,10 +1,12 @@
-// Este archivo se crea para almacenar las funciones del minireto 1 de la semana 1
+// Este archivo se crea para cumplir el minireto 1 de la semana 1
 
 
+// Las funciones a continuación se crean para responder al minireto 2 de la semana 1
 // Calcula el valor total de una venta
-// ¿cómo sabe la función que .cantidad y .precio son propiedades del archivo datos? porque viajan de aquí hasta el archivo datos y se muestran en
-// explorar. 
-// Aquí venta es un parámetro comodín (o variable local) que representa una sola fila del arreglo en el momento en que la función se ejecuta
+// ¿cómo sabe la función que .cantidad y .precio son propiedades del archivo datos? no lo sabe: JavaScript no verifica nada 
+// de antemano. venta es solo un parámetro que recibe cada objeto cuando llamas la función, y si le pasaras un objeto sin 
+// precio, el resultado sería NaN. Los datos no "viajan" entre archivos, simplemente pasas el arreglo importado como argumento.
+
 function valorVenta(venta) {
     return venta.cantidad * venta.precio;
 }
