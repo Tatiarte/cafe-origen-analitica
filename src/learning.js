@@ -493,3 +493,102 @@ function contarAprobados(calificaciones){
   }
   return total;
 }
+
+
+// Ejercicios de la página TESLA
+
+const codersEmpty = [];
+const codersSimple = ["Ana"];
+const coders = ["Ana", "Luis", "Sara", "Mateo"];
+
+function primeroYUltimo(coders) {
+  const codersLength = coder.length
+  
+  if (!codersLength) return coders // esto da cero o sea false y el ! lo vuelve verdadero
+  
+  const first = coders[0]
+  const last = coders[coderLength - 1]
+  
+  return [first, last]
+}
+
+console.log(primeroYUltimo(codersEmpty))
+console.log(primeroYUltimo(codersSimple))
+console.log(primeroYUltimo(coders))
+
+// OTRO EJERCICIO
+
+// En la rotación de presentaciones el turno da la vuelta. Escribe turnoCircular(lista, i) que devuelva el elemento en la posición i dando la vuelta a la lista: si i se pasa del final empieza otra vez desde el inicio, y si es negativo cuenta desde atrás. Lista vacía → undefined.
+// el ejercicio esta pidiendo que a un arreglo de uno o 100 elementos le puedas aplicar la misma lógica: 
+// posición normal: que pida un numero del dato y lo arroje 
+
+
+const clanTesla = ["Ana", "Luis", "Sara", "Mateo" ]
+function turnoCircular(lista, i) {
+    if (lista.length === 0) { // list.length representa cuántos elementos hay en la lista, si hay 0 elementos esta diciendo: Si lista.length es estrictamente igual a 0 entonces eso sería true y retornaremos undefined y se detiene. Si no, continua.
+        return undefined;
+    }
+
+const n = lista.length;
+
+  // 2. Calcular el índice circular exacto (funciona para positivos y negativos)
+  const indiceReal = ((i % n) + n) % n;
+
+  // 3. Devolver el elemento en esa posición
+  return lista[indiceReal];
+
+  // EJERCICIO ARRAYS
+  const fila = ["Ana", "Luis"];
+
+function moverAlFinal(fila){
+if (fila.length === 0){
+  return fila
+  }
+  const primercoder = fila.shift();
+  fila.push(primercoder);
+  
+  return fila
+
+}
+ console.log(moverAlFinal(fila))
+
+
+ //Escribe contarAprobados(notas) que cuente cuántas notas son mayores o iguales a 3. Usa un ciclo.
+
+const notas= [4.5, 2.8, 3.9]
+
+function contarAprobados(notas) {
+  let contador = 0
+  for (let i = 0; i < notas.length; i++) {
+  if (notas[i] >= 3) contador++
+  }
+    return contador
+}
+console.log(contarAprobados(notas))
+
+// Escribe aPorcentaje(notas) que convierta notas de 0 a 5 en porcentajes de 0 a 100, redondeados al entero más cercano.
+
+const notas = [4.5, 2.8, 3.9];
+
+function aPorcentaje(notas) {
+    return notas.map(nota => Math.round(nota * 20));
+}
+
+}
+
+console.log(aPorcentaje(notas));
+
+//Escribe soloDeClan(coders, clan) que devuelva los nombres de los coders de ese clan.
+const coders = [
+      { nombre: "Ana", clan: "Tesla", promedio: 4.5 },
+      { nombre: "Luis", clan: "Tesla", promedio: 2.8 },
+      { nombre: "Pedro", clan: "Ubuntu", promedio: 1.5 },
+  ];
+
+function soloDeClan(coders, clan) {
+  return coders
+      .filter(coder => coder.clan === clan)
+      .map(coder => coder.nombre)
+        
+}
+console.log(soloDeClan(coders, "Tesla"))
