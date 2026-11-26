@@ -198,3 +198,16 @@ Se probaron las funciones con tres escenarios: arreglo completo, arreglo de un e
 **Verificación:** todas las funciones respondieron correctamente en los escenarios probados y no produjeron errores ni valores `NaN`.
 
 **Observación:** `ventaMayor()` compara el valor total de cada registro (cantidad × precio), no el precio unitario.
+
+## Minireto 3 — Métodos de arreglo, agrupaciones y rankings
+
+| Función | ¿Qué recorro? | ¿Qué filtro? | ¿Qué transformo? | ¿Qué acumulo? | ¿Cómo agrupo? |
+|---|---|---|---|---|---|
+| `totalVendidoM` | Todas las ventas | Nada | Nada directo (valorVenta dentro del reduce) | La suma de cantidad × precio | No agrupo |
+| `unidadesVendidasM` | Todas las ventas | Nada | Nada | La suma de cantidades | No agrupo |
+| `ventasPorCiudadM` | Todas las ventas | Las de la ciudad buscada (normalizada) | Cada venta a su valor (map) | La suma de esos valores | No agrupo |
+| `totalPorCiudad` | Todas las ventas | Nada | Ciudad a clave normalizada | El valor de cada venta en su ciudad | Un objeto con una clave por ciudad |
+| `unidadesPorProducto` | Todas las ventas | Nada | Nada | Las unidades de cada producto | Un objeto con una clave por producto |
+| `topProductosPorValor` | `topProductosPorValor` | Las ventas y luego los pares del diccionario | Me quedo solo con los k primeros tras ordenar (slice) | Pares [producto, valor] a objetos (map) | El valor por producto (reduce) | Por producto; ordeno una copia (`[...lista]`) de mayor a menor |
+
+**Regla del líder técnico:** cada versión con métodos se verificó contra la versión con ciclo en `src/verificar.js` con tres escenarios (completo, una venta, vacío) y todos dieron OK.
