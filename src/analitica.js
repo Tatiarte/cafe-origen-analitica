@@ -142,6 +142,21 @@ function ventasPorCiudadM(ventas, ciudad) {
 
 
 // Total vendido por cada ciudad, con nombres normalizados como vimos en los ejercicios pasados
+// reduce() en otras palabras es como una personita que recopila y resume información de una libreta (de ventas en este caso). Recorre la lista de la primera a la
+// última, toma cada venta individual y la va acumulando o sumando dentro de una estructura que actua como un diccionario, es decir, el diccionario es una variable vacia
+// {} y el reduce la va llenando no por posición ocmo un arreglo sino por palabras claves o etiquetas de texto como un diccionario clave- valor. En este caso es la
+// ciudad y el dinero acumulado. En programación se llama diccionario porque permite preguntar si una clave existe (va directo al elemento sin tener que revisar la lista una por una)
+// y porque permite crear o actualizar el vuelo, es decir, si la ciudad no esta en el diccionario, se crea, si ya esta actualiza su valor.
+
+// Porqué hay dos return. Bueno si miras bien tienes dos funciones, una dentro de la otra, los return se deben ingresar cuando la función usa esto {}
+// el primer return le pertenece a la function totalPorCiudad, su único trabajo es decir que, cuando el reduce() termine todo su trabajo y me entregue el objeto final
+// con los totales, devuelvelo como el resultado final de esta función 
+// el return de grupos le pertenece a la function flecha que recibe el reduce()
+
+// grupos[clave] busca si dentro del objeto grupos ya existe una propiedad con el nombre que tiene la variable clave (por ejemplo, grupos["bogotá"]).
+// Como el objeto acaba de empezar o esa ciudad no se había registrado, grupos["bogotá"] no existe, por lo que JavaScript devuelve undefined, pero ahí es donde 
+// entra el operador || 0: al ver un undefined (que representa la nada o la ausencia de valor), dice: Ah, como no hay nada, usa un 0 para que pongamos algo en vez de nada.
+// Luego le suma el precio de la venta actual y lo guarda en esa propiedad: grupos["bogotá"] = 26000.
 function totalPorCiudad(ventas) {
     return ventas.reduce((grupos, venta) => {
         const clave = normalizarTexto(venta.ciudad);
@@ -151,6 +166,15 @@ function totalPorCiudad(ventas) {
 }
 
 // Unidades vendidas por producto
+// se repite el mismo método del anterior por lo que no hay mucho que abordar en este caso. Tati sigue practicando funciones con método reduce() para familiarizarte
+// con la estructura. Entonces, para entender esta función sería así: 
+// se crea la función unidades por producto con el parámetro ventas que toma del arreglo de objetos del archivo datos.js, luego retornamos ventas con reduce 
+// para que recorra toda la lista de principio a fin y guarde la información en el diccionario (grupos, venta). Luego, este método ejecuta una función donde 
+// creamos una variable llamada clave, la cual extrae la propiedad producto del objeto individual venta que se está procesando en esta vuelta, y le aplica el método
+//  .trim() para eliminar cualquier espacio sobrante en el texto.
+// Luego seguimos en la segunda function, del diccionario cogemos grupos y le metemos en clave todos los elementos
+// de la clave que se extraen de la propiedad producto, pero si grupos recoge las claves y no encuentra nada seria undefine pero el || me dice que si es undefined o
+// cero me de cero (creo), al final le suma al acumulador del reduce que seria grupo por venta la cantidad y retorna grupo para saber el total.
 function unidadesPorProducto(ventas) {
     return ventas.reduce((grupos, venta) => {
         const clave = venta.producto.trim();
@@ -159,13 +183,24 @@ function unidadesPorProducto(ventas) {
     }, {});
 }
 
-// Los k productos que más dinero generaron, de mayor a menor
+// Aquí es más complejo porque no solo agrupa sino que combina otros métodos para sacar el ranking K.
+// Aquí se hacen tres cosas: primero: se suma cuánto dinero generó cada producto en total. Segundo: aquí se transforma ese objeto diccionario en una lista 
+// (un arreglo de objetos) para poder ordenarlo.Y tercero: Ordenar esa lista de mayor a menor y la recorta para quedarnos solo con los primeros k puestos.
+
+
+
 function topProductosPorValor(ventas, k) {
     const valorPorProducto = ventas.reduce((grupos, venta) => {
         const clave = venta.producto.trim();
         grupos[clave] = (grupos[clave] || 0) + valorVenta(venta);
         return grupos;
     }, {});
+
+    
+//Object.entries(valorPorProducto): Los objetos en JavaScript por sí solos no se pueden ordenar fácilmente con .sort(). Este método agarra el objeto diccionario 
+// y lo convierte en una matriz (un arreglo de pares): [ ["Origen Huila 500 g", 126000], ["Prensa francesa", 95000], ... ]. 
+// .map(...): Recorre esa matriz y transforma cada par en un objeto limpio con propiedades claras: { producto: "Origen Huila 500 g", valor: 126000 }. 
+// Ahora tenemos un arreglo ordenado en fila, listo para el siguiente paso.
 
     const lista = Object.entries(valorPorProducto)
         .map(([producto, valor]) => ({ producto, valor }));
